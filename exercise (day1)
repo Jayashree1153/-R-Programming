@@ -1,0 +1,92 @@
+Exercise 1:
+1. Write The Commands To Perform Basic Arithmetic In R.
+Program:
+x&lt;-c(1,2,3,4,5,6)
+y&lt;-c(4,5,3,9,7,9)
+print(&quot;addition:&quot;)
+print(x+y)
+print(&quot;subtraction:&quot;)
+print(x-y)
+print(&quot;multipication:&quot;)
+print(x*y)
+print(&quot;division:&quot;)
+print(x/y)
+print(&quot;exponent:&quot;)
+print(x^y)
+print(&quot;modulus:&quot;)
+print(x%%y)
+Output:
+
+2. Display a String on R Console.
+Program:
+
+x&lt;-&quot;learning R program&quot;
+print(x)
+Output:
+
+3. Declare Variables In R And Also Write The Commands For Retrieving The Value Of
+The Stored Variables In R Console.
+Program:
+x&lt;-&quot;hello all&quot;
+print(x)
+Output:
+
+4. Write R script to calculate the area of Rectangle.
+Program:
+length &lt;- 5
+breadth &lt;- 3
+ar&lt;-length * breadth
+print(ar)
+Output:
+
+5.Write Commands In R Console To Determine The Type Of Variable
+Program:
+length &lt;- 5
+breadth &lt;- &quot;hello&quot;
+print(typeof(length))
+print(typeof(breadth))
+Output:
+
+6.Enumerate The Process To Check Whether A Given Input Is Numeric , Integer ,
+Double, Complex in R.
+Program:
+num&lt;-6
+integer1&lt;-4.8
+complex1&lt;-2+3i
+double1&lt;-&quot;5&quot;
+print(is.numeric(num))
+print(is.integer(integer1))
+print(is.complex(complex1))
+print(is.double(double1))
+
+Output:
+
+7. Illustration of Vector Arithmetic.
+Program:
+a&lt;-c(1, 9, 5, 7)
+b&lt;-c(1, 2, 4, 8)
+x=4*a
+print(&quot;4*a=&quot;)
+print(x)
+print(&quot;a+b=&quot;)
+ad=a+b
+print(ad)
+subb=a-b
+print(&quot;a-b=&quot;)
+print(subb)
+multi=a*b
+print(&quot;a*b=&quot;)
+print(multi)
+divi=a/b
+print(&quot;a/b=&quot;)
+print(divi)
+Output:
+
+8. Write an R Program to Take Input From User.
+Input name as “Jack” and age as 17.
+The program should display the output as
+“Hai , Jack next year you will be 18 years old”
+Program:
+name&lt;-&quot;Jack&quot;
+age&lt;-18
+x=sprintf(&quot;Hai, %s next year you will be %d years old&quot;,name,age)
