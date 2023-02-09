@@ -1,0 +1,135 @@
+Exercise:2
+1. Perform Matrix Addition &amp; Subtraction in R
+Program:
+a&lt;-matrix(c(5:13),nrow=3,ncol=3,byrow=TRUE)
+b&lt;-matrix(c(1:9),nrow=3,ncol=3)
+print (&quot;matrix addition&quot;)
+print (a+b)
+print (&quot;matrix subtraction&quot;)
+print (a-b)
+Output:
+
+2. Perform Scalar multiplication and matrix multiplication in R
+Program:
+a&lt;- matrix(1:9, nrow=3)
+a&lt;- 2*a
+print(a)
+Output:
+
+3. Find Transpose of matrix in R.
+Program:
+Matrix = matrix(1:9, nrow = 3)
+print(Matrix)
+M2 = Matrix
+for (i in 1:nrow(M2))
+{
+for (j in 1:ncol(M2))
+{
+M2[i, j] &lt;- Matrix[j, i]
+}
+}
+print(M2)
+Output:
+
+4. Perform the operation of combining matrices in R using cbind() and rbind()
+functions.
+Program:
+a&lt;-c(7,8,5)
+b&lt;-c(3,7,1)
+c&lt;-c(4,6,0)
+print(cbind(a,b,c))
+print(rbind(a,b,c))
+Output:
+
+5.Deconstruct a matrix in R
+Program:
+a&lt;-c(7,8,5)
+b&lt;-c(3,7,1)
+c&lt;-c(4,6,0)
+x=cbind(a,b,c)
+c(x)
+Output:
+
+6. Perform array manipulation in R .
+Program:
+vector1 &lt;- c(5,9,3)
+
+vector2 &lt;- c(10,11,12,13,14,15)
+array1 &lt;- array(c(vector1,vector2),dim = c(3,3,2))
+vector3 &lt;- c(9,1,0)
+vector4 &lt;- c(6,0,11,3,14,1,2,6,9)
+array2 &lt;- array(c(vector1,vector2),dim = c(3,3,2))
+matrix1 &lt;- array1[,,2]
+matrix2 &lt;- array2[,,2]
+result &lt;- matrix1+matrix2
+print(result)
+Output:
+
+7. Perform calculations across array elements in an array using the apply() function.
+Program:
+vector1 &lt;- c(5,9,3)
+vector2 &lt;- c(10,11,12,13,14,15)
+new.array &lt;- array(c(vector1,vector2),dim = c(3,3,2))
+print(new.array)
+result &lt;- apply(new.array, c(1), sum)
+print(result)
+Output:
+
+8. Demonstrate Factor data structure in R.
+Program:
+vect&lt;-c(1,4,2,3,6,5)
+
+name&lt;-c(&quot;jaya&quot;,&quot;diviya&quot;)
+print(&quot;vector&quot;)
+print(vect)
+print(&quot;list&quot;)
+lists&lt;-list(vect,name)
+print(lists)
+matrices&lt;-matrix(vect,nrow=2,ncol=3)
+print(&quot;matrix&quot;)
+print(matrices)
+v1 &lt;- c(5,9,3)
+v2 &lt;- c(10,11,12,13,14,15)
+result &lt;- array(c(v1,v2),dim = c(3,3,2))
+print(&quot;array&quot;)
+print(result)
+f&lt;-c(1,3,5,6,7)
+fact=factor(f)
+print(&quot;factor&quot;)
+print(fact)
+df&lt;-data.frame(name=c(&quot;kim&quot;,&quot;jin&quot;,&quot;jungook&quot;,&quot;v&quot;,&quot;min&quot;),age=c(19,18,22,21,20))
+print(&quot;dataframe&quot;)
+print(df)
+Output:
+
+9. Create a data frame and print the structure of the data frame in R.
+Program:
+df&lt;-data.frame(name=c(&quot;kim&quot;,&quot;jin&quot;,&quot;jungook&quot;,&quot;v&quot;,&quot;min&quot;),age=c(19,18,22,21,20))
+print(&quot;dataframe&quot;)
+print(df)
+print(str(df))
+Output:
+
+10. Demonstrate the creation of S3 class in R.
+
+Program:
+x &lt;- list(name =&quot;jayashree&quot;, account_no = 12345678,saving =35500, withdrawn = 2000)
+class(x)&lt;-&quot;bank&quot;
+x
+Output:
+
+11. Demonstrate the creation of S4 class in R.
+Program:
+setClass(&quot;student_Info&quot;, slots=list(name=&quot;character&quot;, age=&quot;numeric&quot;))
+stu&lt;- new(&quot;student_Info&quot;, name = &quot;jaya&quot;, age = 19)
+stu
+Output:
+
+12. Demonstrate the creation of Reference class in R by defining a class called students
+with fields – Name, Age , GPA. Also illustrate how the fields of the object can be
+accessed using the $ operator. Modify the Name field by reassigning the name to Paul.
+Program:
+student &lt;- setRefClass(&quot;student&quot;,fields = list(name = &quot;character&quot;, age = &quot;numeric&quot;, GPA = &quot;numeric&quot;))
+s &lt;- student(name = &quot;jaya&quot;, age = 19, GPA = 9.5)
+s
+Output:
