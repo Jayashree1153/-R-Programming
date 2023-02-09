@@ -1,0 +1,44 @@
+1. Write a program to check whether an integer (entered by the user) is a prime number
+or not using control statements.
+Program:
+num = as.integer(readline(prompt="Enter a number: "))
+flag = 0
+if(num > 1) {
+  flag = 1
+  for(i in 2:(num-1)) {
+    if ((num %% i) == 0) {
+      flag = 0
+      break
+    }
+  }
+} 
+if(num == 2)    flag = 1
+if(flag == 1) {
+  print(paste(num,"is a prime number"))
+} else {
+  print(paste(num,"is not a prime number"))
+}
+Output:
+> source("~/.active-rstudio-document")
+Enter a number: 7
+[1] "7 is a prime number"
+>
+2. Write a program to check whether a number entered by the user is positive number
+or a negative number or zero.
+Program:
+num = as.double(readline(prompt="Enter a number: "))
+if(num > 0) {
+  print("Positive number")
+} else {
+  if(num == 0) {
+    print("Zero")
+  } else {
+    print("Negative number")
+  }
+}
+Output:
+> source("~/.active-rstudio-document")
+Enter a number: 7
+[1] "Positive number"
+>
+3.
