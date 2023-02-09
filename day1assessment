@@ -1,0 +1,104 @@
+SAVEETHA SCHOOL OF ENGINEERING
+
+Lab Assessment 1
+
+NAME: S. Jayashree
+REGNO:192121153
+1. Write a R program to take input from the user (name and age) and display
+the values. Also print the version of R installation.
+Program:
+name = readline(prompt=&quot;Input your name: &quot;)
+age = readline(prompt=&quot;Input your age: &quot;)
+print(paste(&quot;My name is&quot;,name, &quot;and I am&quot;,age ,&quot;years old.&quot;))
+print(R.version.string)
+Output:
+
+2. Write R program to get the details of the objects in memory.
+Program:
+name = &quot;R programming&quot;;
+n1 = 10;
+n2 = 0.5
+nums = c(10, 20, 30, 40, 50, 60)
+print(ls())
+print(&quot;Details of the objects in memory:&quot;)
+print(ls.str())
+Output:
+
+3. Write a R program to create a sequence of numbers from 20 to 50 and find
+
+the mean of numbers from 20 to 60 and sum of numbers from 51 to 91.
+Program:
+print(&quot;Sequence of numbers from 20 to 50:&quot;)
+print(seq(20,50))
+print(&quot;Mean of numbers from 20 to 60:&quot;)
+print(mean(20:60))
+print(&quot;Sum of numbers from 51 to 91:&quot;)
+print(sum(51:91))
+Output:
+
+4.  Write a R program to create a vector which contains 10 random integer
+values between -50 and +50. 
+Program:
+a=sample(-50:50, 10, replace=TRUE)
+print(“Content of the vector:”)
+print(“10 random integer values between -50 and +50:”)
+print(a)
+Output:
+
+5. Write a R program to get the first 10 Fibonacci numbers. 
+CODE:
+Fibonacci &lt;- numeric(10)
+Fibonacci[1] &lt;- Fibonacci[2] &lt;- 1
+for (i in 3:10) Fibonacci[i] &lt;- Fibonacci[i - 2] + Fibonacci[i - 1]
+print(&quot;First 10 Fibonacci numbers:&quot;)
+print(Fibonacci)
+OUTPUT:
+
+6.  Write a R program to get all prime numbers up to a given number (based on
+the sieve of Eratosthenes).
+Program:
+prime_numbers &lt;- function(n) {
+if (n &gt;= 2) {
+x = seq(2, n)
+prime_nums = c()
+for (i in seq(2, n)) {
+if (any(x == i)) {
+prime_nums = c(prime_nums, i)
+x = c(x[(x %% i) != 0], i)
+}
+}
+return(prime_nums)
+}
+else
+{
+stop(&quot;Input number should be at least 2.&quot;)
+}
+}
+prime_numbers(12)
+Output:
+
+7. Write a R program to print the numbers from 1 to 100 and print &amp;quot;Fizz&amp;quot; for
+multiples of 3, print &amp;quot;Buzz&amp;quot; for multiples of 5, and print &amp;quot;FizzBuzz&amp;quot;
+for multiple of both.
+
+Program:
+for (n in 1:100) {
+if (n %% 3 == 0 &amp; n %% 5 == 0) {print(&quot;FizzBuzz&quot;)}
+else if (n %% 3 == 0) {print(&quot;Fizz&quot;)}
+else if (n %% 5 == 0) {print(&quot;Buzz&quot;)}
+else print(n)
+}
+Output:
+
+8. Write a R program to extract first 10 english letter in lower case and last 10
+letters in upper case and extract letters between 22 nd  to 24 th  letters in upper
+case.
+Program:
+print(&quot;First 10 letters in lower case:&quot;)
+t = head(letters, 10)
+print(t)
+print(&quot;Last 10 letters in upper case:&quot;)
+t = tail(LETTERS, 10)
+print(t)
+print(&quot;Letters between 22nd to 24th letters in upper case:&quot;)
+e = tail(LETTERS[22:24])
