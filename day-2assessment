@@ -1,0 +1,461 @@
+1.Write a R program to create an array of two 3x3 matrices each with 3 rows and 3
+columns from two given two vectors. Print the second row of the second matrix of the
+array and the element in the 3rd row and 3rd column of the 1st matrix.
+Program:
+print(&quot;Two vectors of different lengths:&quot;)
+v1 = c(1,3,4,5)
+v2 = c(10,11,12,13,14,15)
+print(v1)
+print(v2)
+result = array(c(v1,v2),dim = c(3,3,2))
+print(&quot;New array:&quot;)
+print(result)
+print(&quot;The second row of the second matrix of the array:&quot;)
+print(result[2,,2])
+print(&quot;The element in the 3rd row and 3rd column of the 1st matrix:&quot;)
+print(result[3,3,1])
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Two vectors of different lengths:&quot;
+[1] 1 3 4 5
+[1] 10 11 12 13 14 15
+[1] &quot;New array:&quot;
+, , 1
+
+[,1] [,2] [,3]
+[1,] 1 5 12
+[2,] 3 10 13
+[3,] 4 11 14
+, , 2
+[,1] [,2] [,3]
+[1,] 15 4 11
+[2,] 1 5 12
+[3,] 3 10 13
+[1] &quot;The second row of the second matrix of the array:&quot;
+[1] 1 5 12
+[1] &quot;The element in the 3rd row and 3rd column of the 1st matrix:&quot;
+[1] 14
+&gt;
+2. Write a R program to combine three arrays so that the first row of the first array is
+followed by the first row of the second array and then first row of the third array.
+Program:
+num1 = rbind(rep(&quot;A&quot;,3), rep(&quot;B&quot;,3), rep(&quot;C&quot;,3))
+print(&quot;num1&quot;)
+print(num1)
+num2 = rbind(rep(&quot;P&quot;,3), rep(&quot;Q&quot;,3), rep(&quot;R&quot;,3))
+print(&quot;num2&quot;)
+print(num2)
+num3 = rbind(rep(&quot;X&quot;,3), rep(&quot;Y&quot;,3), rep(&quot;Z&quot;,3))
+print(&quot;num3&quot;)
+print(num3)
+a = matrix(t(cbind(num1,num2,num3)),ncol=3, byrow=T)
+print(&quot;Combine three arrays, taking one row from each one by one:&quot;)
+print(a)
+Output:
+
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;num1&quot;
+[,1] [,2] [,3]
+[1,] &quot;A&quot; &quot;A&quot; &quot;A&quot;
+[2,] &quot;B&quot; &quot;B&quot; &quot;B&quot;
+[3,] &quot;C&quot; &quot;C&quot; &quot;C&quot;
+[1] &quot;num2&quot;
+[,1] [,2] [,3]
+[1,] &quot;P&quot; &quot;P&quot; &quot;P&quot;
+[2,] &quot;Q&quot; &quot;Q&quot; &quot;Q&quot;
+[3,] &quot;R&quot; &quot;R&quot; &quot;R&quot;
+[1] &quot;num3&quot;
+[,1] [,2] [,3]
+[1,] &quot;X&quot; &quot;X&quot; &quot;X&quot;
+[2,] &quot;Y&quot; &quot;Y&quot; &quot;Y&quot;
+[3,] &quot;Z&quot; &quot;Z&quot; &quot;Z&quot;
+[1] &quot;Combine three arrays, taking one row from each one by one:&quot;
+[,1] [,2] [,3]
+[1,] &quot;A&quot; &quot;A&quot; &quot;A&quot;
+[2,] &quot;P&quot; &quot;P&quot; &quot;P&quot;
+[3,] &quot;X&quot; &quot;X&quot; &quot;X&quot;
+[4,] &quot;B&quot; &quot;B&quot; &quot;B&quot;
+[5,] &quot;Q&quot; &quot;Q&quot; &quot;Q&quot;
+[6,] &quot;Y&quot; &quot;Y&quot; &quot;Y&quot;
+[7,] &quot;C&quot; &quot;C&quot; &quot;C&quot;
+[8,] &quot;R&quot; &quot;R&quot; &quot;R&quot;
+[9,] &quot;Z&quot; &quot;Z&quot; &quot;Z&quot;
+&gt;
+3. Write a R program to create an array using four given columns, three given rows, and
+two given tables and display the content of the array.
+
+Program:
+array1 = array(1:30, dim=c(3,5,2))
+print(array1)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+, , 1
+[,1] [,2] [,3] [,4] [,5]
+[1,] 1 4 7 10 13
+[2,] 2 5 8 11 14
+[3,] 3 6 9 12 15
+, , 2
+[,1] [,2] [,3] [,4] [,5]
+[1,] 16 19 22 25 28
+[2,] 17 20 23 26 29
+[3,] 18 21 24 27 30
+&gt;
+4. Write a R program to create a two-dimensional 5x3 array of sequence of even integers
+greater than 50.
+Program:
+a &lt;- array(seq(from = 50, length.out = 15, by = 2), c(5, 3))
+print(&quot;Content of the array:&quot;)
+print(&quot;5×3 array of sequence of even integers greater than 50:&quot;)
+print(a)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Content of the array:&quot;
+[1] &quot;5×3 array of sequence of even integers greater than 50:&quot;
+[,1] [,2] [,3]
+[1,] 50 60 70
+[2,] 52 62 72
+
+[3,] 54 64 74
+[4,] 56 66 76
+[5,] 58 68 78
+&gt;
+5. Write a R program to extract 3 rd  and 5 th  rows with 1 st  and 3 rd  columns from a
+given data frame
+Program:
+exam_data = data.frame(
+name = c(&#39;Anastasia&#39;, &#39;Dima&#39;, &#39;Katherine&#39;, &#39;James&#39;, &#39;Emily&#39;, &#39;Michael&#39;, &#39;Matthew&#39;, &#39;Laura&#39;,
+&#39;Kevin&#39;, &#39;Jonas&#39;),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c(&#39;yes&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;)
+)
+print(&quot;Original dataframe:&quot;)
+print(exam_data)
+print(&quot;Extract 3rd and 5th rows with 1st and 3rd columns :&quot;)
+result = exam_data[c(3,5),c(1,3)]
+print(result)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Original dataframe:&quot;
+name score attempts qualify
+1 Anastasia 12.5 1 yes
+2 Dima 9.0 3 no
+3 Katherine 16.5 2 yes
+4 James 12.0 3 no
+5 Emily 9.0 2 no
+6 Michael 20.0 3 yes
+7 Matthew 14.5 1 yes
+
+8 Laura 13.5 1 no
+9 Kevin 8.0 2 no
+10 Jonas 19.0 1 yes
+[1] &quot;Extract 3rd and 5th rows with 1st and 3rd columns :&quot;
+name attempts
+3 Katherine 2
+5 Emily 2
+&gt;
+6. Write a R program to add a new column named country in a given data frame
+Program:
+exam_data = data.frame(
+name = c(&#39;Anastasia&#39;, &#39;Dima&#39;, &#39;Katherine&#39;, &#39;James&#39;, &#39;Emily&#39;, &#39;Michael&#39;, &#39;Matthew&#39;, &#39;Laura&#39;,
+&#39;Kevin&#39;, &#39;Jonas&#39;),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c(&#39;yes&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;)
+)
+print(&quot;Original dataframe:&quot;)
+print(exam_data)
+print(&quot;New data frame after adding the &#39;country&#39; column:&quot;)
+exam_data$country = c(&quot;USA&quot;,&quot;USA&quot;,&quot;USA&quot;,&quot;USA&quot;,&quot;USA&quot;,&quot;USA&quot;,&quot;USA&quot;,&quot;USA&quot;,&quot;USA&quot;,&quot;USA&quot;)
+print(exam_data)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Original dataframe:&quot;
+name score attempts qualify
+1 Anastasia 12.5 1 yes
+2 Dima 9.0 3 no
+3 Katherine 16.5 2 yes
+4 James 12.0 3 no
+
+5 Emily 9.0 2 no
+6 Michael 20.0 3 yes
+7 Matthew 14.5 1 yes
+8 Laura 13.5 1 no
+9 Kevin 8.0 2 no
+10 Jonas 19.0 1 yes
+[1] &quot;New data frame after adding the &#39;country&#39; column:&quot;
+name score attempts qualify country
+1 Anastasia 12.5 1 yes USA
+2 Dima 9.0 3 no USA
+3 Katherine 16.5 2 yes USA
+4 James 12.0 3 no USA
+5 Emily 9.0 2 no USA
+6 Michael 20.0 3 yes USA
+7 Matthew 14.5 1 yes USA
+8 Laura 13.5 1 no USA
+9 Kevin 8.0 2 no USA
+10 Jonas 19.0 1 yes USA
+&gt;
+7. Write a R program to add new row(s) to an existing data frame new_exam_data =
+data.frame(name = c(&amp;#39;Robert&amp;#39;, &amp;#39;Sophia&amp;#39;),score = c(10.5, 9), attempts
+= c(1,3),qualify = c(&amp;#39;yes&amp;#39;, &amp;#39;no&amp;#39;))
+Program:
+exam_data = data.frame(
+name = c(&#39;Anastasia&#39;, &#39;Dima&#39;, &#39;Katherine&#39;, &#39;James&#39;, &#39;Emily&#39;, &#39;Michael&#39;, &#39;Matthew&#39;, &#39;Laura&#39;,
+&#39;Kevin&#39;, &#39;Jonas&#39;),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c(&#39;yes&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;)
+)
+
+print(&quot;Original dataframe:&quot;)
+print(exam_data)
+new_exam_data = data.frame(
+name = c(&#39;Robert&#39;, &#39;Sophia&#39;),
+score = c(10.5, 9),
+attempts = c(1, 3),
+qualify = c(&#39;yes&#39;, &#39;no&#39;)
+)
+exam_data = rbind(exam_data, new_exam_data)
+print(&quot;After adding new row(s) to an existing data frame:&quot;)
+print(exam_data)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Original dataframe:&quot;
+name score attempts qualify
+1 Anastasia 12.5 1 yes
+2 Dima 9.0 3 no
+3 Katherine 16.5 2 yes
+4 James 12.0 3 no
+5 Emily 9.0 2 no
+6 Michael 20.0 3 yes
+7 Matthew 14.5 1 yes
+8 Laura 13.5 1 no
+9 Kevin 8.0 2 no
+10 Jonas 19.0 1 yes
+[1] &quot;After adding new row(s) to an existing data frame:&quot;
+name score attempts qualify
+1 Anastasia 12.5 1 yes
+2 Dima 9.0 3 no
+
+3 Katherine 16.5 2 yes
+4 James 12.0 3 no
+5 Emily 9.0 2 no
+6 Michael 20.0 3 yes
+7 Matthew 14.5 1 yes
+8 Laura 13.5 1 no
+9 Kevin 8.0 2 no
+10 Jonas 19.0 1 yes
+11 Robert 10.5 1 yes
+12 Sophia 9.0 3 no
+8. Write a R program to sort a given data frame by name and score
+Program:
+exam_data = data.frame(
+name = c(&#39;Anastasia&#39;, &#39;Dima&#39;, &#39;Katherine&#39;, &#39;James&#39;, &#39;Emily&#39;, &#39;Michael&#39;, &#39;Matthew&#39;, &#39;Laura&#39;,
+&#39;Kevin&#39;, &#39;Jonas&#39;),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c(&#39;yes&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;)
+)
+print(&quot;Original dataframe:&quot;)
+print(exam_data)
+print(&quot;dataframe after sorting &#39;name&#39; and &#39;score&#39; columns:&quot;)
+exam_data = exam_data[with(exam_data, order(name, score)), ]
+print(exam_data)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Original dataframe:&quot;
+name score attempts qualify
+1 Anastasia 12.5 1 yes
+2 Dima 9.0 3 no
+
+3 Katherine 16.5 2 yes
+4 James 12.0 3 no
+5 Emily 9.0 2 no
+6 Michael 20.0 3 yes
+7 Matthew 14.5 1 yes
+8 Laura 13.5 1 no
+9 Kevin 8.0 2 no
+10 Jonas 19.0 1 yes
+[1] &quot;dataframe after sorting &#39;name&#39; and &#39;score&#39; columns:&quot;
+name score attempts qualify
+1 Anastasia 12.5 1 yes
+2 Dima 9.0 3 no
+5 Emily 9.0 2 no
+4 James 12.0 3 no
+10 Jonas 19.0 1 yes
+3 Katherine 16.5 2 yes
+9 Kevin 8.0 2 no
+8 Laura 13.5 1 no
+7 Matthew 14.5 1 yes
+6 Michael 20.0 3 yes
+9. Write a R program to save the information of a data frame in a file and display the
+information of the file.
+Program:
+exam_data = data.frame(
+name = c(&#39;Anastasia&#39;, &#39;Dima&#39;, &#39;Katherine&#39;, &#39;James&#39;, &#39;Emily&#39;, &#39;Michael&#39;, &#39;Matthew&#39;, &#39;Laura&#39;,
+&#39;Kevin&#39;, &#39;Jonas&#39;),
+score = c(12.5, 9, 16.5, 12, 9, 20, 14.5, 13.5, 8, 19),
+attempts = c(1, 3, 2, 3, 2, 3, 1, 1, 2, 1),
+qualify = c(&#39;yes&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;, &#39;yes&#39;, &#39;no&#39;, &#39;no&#39;, &#39;yes&#39;)
+)
+
+print(&quot;Original dataframe:&quot;)
+print(exam_data)
+save(exam_data,file=&quot;data.rda&quot;)
+load(&quot;data.rda&quot;)
+file.info(&quot;data.rda&quot;)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Original dataframe:&quot;
+name score attempts qualify
+1 Anastasia 12.5 1 yes
+2 Dima 9.0 3 no
+3 Katherine 16.5 2 yes
+4 James 12.0 3 no
+5 Emily 9.0 2 no
+6 Michael 20.0 3 yes
+7 Matthew 14.5 1 yes
+8 Laura 13.5 1 no
+9 Kevin 8.0 2 no
+10 Jonas 19.0 1 yes
+&gt;
+10. Write a R program to call the (built-in) dataset airquality. Check whether it is a data
+frame or
+not? Order the entire data frame by the first and second column. remove the variables
+&amp;#39;Solar.R&amp;#39;
+and &amp;#39;Wind&amp;#39; and display the data frame.
+Program:
+data = airquality
+print(&quot;Original data: Daily air quality measurements in New York, May to September 1973.&quot;)
+print(class(data))
+print(head(data,10))
+
+result = data[order(data[,1]),]
+print(&quot;Order the entire data frame by the first and second column:&quot;)
+print(result)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Original data: Daily air quality measurements in New York, May to September 1973.&quot;
+[1] &quot;data.frame&quot;
+Ozone Solar.R Wind Temp Month Day
+1 41 190 7.4 67 5 1
+2 36 118 8.0 72 5 2
+3 12 149 12.6 74 5 3
+4 18 313 11.5 62 5 4
+5 NA NA 14.3 56 5 5
+6 28 NA 14.9 66 5 6
+7 23 299 8.6 65 5 7
+8 19 99 13.8 59 5 8
+9 8 19 20.1 61 5 9
+10 NA 194 8.6 69 5 10
+[1] &quot;Order the entire data frame by the first and second column:&quot;
+Ozone Solar.R Wind Temp Month Day
+21 1 8 9.7 59 5 21
+23 4 25 9.7 61 5 23
+18 6 78 18.4 57 5 18
+11 7 NA 6.9 74 5 11
+76 7 48 14.3 80 7 15
+147 7 49 10.3 69 9 24
+9 8 19 20.1 61 5 9
+94 9 24 13.8 81 8 2
+114 9 36 14.3 72 8 22
+137 9 24 10.9 71 9 14
+73 10 264 14.3 73 7 12
+13 11 290 9.2 66 5 13
+20 11 44 9.7 62 5 20
+22 11 320 16.6 73 5 22
+3 12 149 12.6 74 5 3
+50 12 120 11.5 73 6 19
+51 13 137 10.3 76 6 20
+138 13 112 11.5 71 9 15
+141 13 27 10.3 76 9 18
+144 13 238 12.6 64 9 21
+14 14 274 10.9 68 5 14
+16 14 334 11.5 64 5 16
+148 14 20 16.6 63 9 25
+151 14 191 14.3 75 9 28
+12 16 256 9.7 69 5 12
+82 16 7 6.9 74 7 21
+95 16 77 7.4 82 8 3
+143 16 201 8.0 82 9 20
+4 18 313 11.5 62 5 4
+15 18 65 13.2 58 5 15
+140 18 224 13.8 67 9 17
+152 18 131 8.0 76 9 29
+8 19 99 13.8 59 5 8
+49 20 37 9.2 65 6 18
+87 20 81 8.6 82 7 26
+130 20 252 10.9 80 9 7
+153 20 223 11.5 68 9 30
+47 21 191 14.9 77 6 16
+113 21 259 15.5 77 8 21
+132 21 230 10.9 75 9 9
+135 21 259 15.5 76 9 12
+108 22 71 10.3 77 8 16
+7 23 299 8.6 65 5 7
+28 23 13 12.0 67 5 28
+44 23 148 8.0 82 6 13
+110 23 115 7.4 76 8 18
+131 23 220 10.3 78 9
+
+11. Write a R program to create a factor corresponding to height of women data set ,
+which inbuild in R, contains height and weights for a sample of women.
+Program:
+data = women
+print(&quot;Women data set of height and weights:&quot;)
+print(data)
+height_f = cut(women$height,3)
+print(&quot;Factor corresponding to height:&quot;)
+print(table(height_f))
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Women data set of height and weights:&quot;
+height weight
+1 58 115
+2 59 117
+3 60 120
+4 61 123
+5 62 126
+6 63 129
+7 64 132
+8 65 135
+9 66 139
+10 67 142
+11 68 146
+12 69 150
+13 70 154
+14 71 159
+15 72 164
+[1] &quot;Factor corresponding to height:&quot;
+height_f
+
+(58,62.7] (62.7,67.3] (67.3,72]
+5 5 5
+&gt;
+12. Write a R program to extract the five of the levels of factor created from a random
+sample from the LETTERS (Part of the base R distribution.
+Program:
+L = sample(LETTERS,size=50,replace=TRUE)
+print(&quot;Original data:&quot;)
+print(L)
+f = factor(L)
+print(&quot;Original factors:&quot;)
+print(f)
+print(&quot;Only five of the levels&quot;)
+print(table(L[1:5]))
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] &quot;Original data:&quot;
+[1] &quot;K&quot; &quot;Y&quot; &quot;Q&quot; &quot;J&quot; &quot;L&quot; &quot;R&quot; &quot;X&quot; &quot;P&quot; &quot;L&quot; &quot;R&quot; &quot;P&quot; &quot;D&quot; &quot;T&quot; &quot;G&quot; &quot;J&quot; &quot;T&quot; &quot;W&quot;
+[18] &quot;V&quot; &quot;X&quot; &quot;P&quot; &quot;G&quot; &quot;H&quot; &quot;B&quot; &quot;O&quot; &quot;B&quot; &quot;L&quot; &quot;V&quot; &quot;O&quot; &quot;E&quot; &quot;S&quot; &quot;C&quot; &quot;O&quot; &quot;N&quot; &quot;V&quot;
+[35] &quot;Z&quot; &quot;M&quot; &quot;J&quot; &quot;S&quot; &quot;C&quot; &quot;N&quot; &quot;X&quot; &quot;E&quot; &quot;J&quot; &quot;L&quot; &quot;W&quot; &quot;W&quot; &quot;D&quot; &quot;D&quot; &quot;N&quot; &quot;Y&quot;
+[1] &quot;Original factors:&quot;
+[1] K Y Q J L R X P L R P D T G J T W V X P G H B O B L V O E S C O N V
+[35] Z M J S C N X E J L W W D D N Y
+Levels: B C D E G H J K L M N O P Q R S T V W X Y Z
+[1] &quot;Only five of the levels&quot;
+
+J K L Q Y
+1 1 1 1 1
+&gt;
