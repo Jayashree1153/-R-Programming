@@ -1,0 +1,535 @@
+SAVEETHA SCHOOL OF ENGINEERING
+
+LAB MANUAL
+
+NAME: S.Jayashree
+REGNO:192121153
+1. Exercise:
+I. ARITHMETIC MEAN
+a) Write suitable R code to compute the average of the following values.
+12,7,3,4.2,18,2,54,-21,8,-5
+Program:
+A&lt;-c(12,7,3,4.2,18,2,54,-21,8,-5)
+print(mean(A))
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] 8.22
+&gt;
+b) Compute the mean after applying the trim option and removing 3 values from each
+end.
+Program:
+A&lt;-c(12,7,3,4.2,18,2,54,-21,8,-5)
+mean(A, trim=0.3)
+Output:
+&gt; mean(A, trim=0.3)
+[1] 5.55
+&gt;
+c) Compute the mean of the following vector .
+(12,7,3,4.2,18,2,54,-21,8,-5,NA)
+#If there are missing values, then the mean function returns NA.
+
+Program:
+x &lt;- c(12,7,3,4.2,18,2,54,-21,8,-5,NA)
+result.mean &lt;- mean(x)
+print(result.mean)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] NA
+&gt;
+# Find mean dropping NA values.
+#To drop the missing values from the calculation use na.rm = TRUE
+Program:
+x &lt;- c(12,7,3,4.2,18,2,54,-21,8,-5,NA)
+result.mean &lt;- mean(x,na.rm = TRUE)
+print(result.mean)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] 8.22
+&gt;
+II.MEDIAN
+Write suitable R code to compute the median of the following values.
+12,7,3,4.2,18,2,54,-21,8,-5
+Program:
+a&lt;-c(12,7,3,4.2,18,2,54,-21,8,-5)
+print(median(a))
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] 5.6
+
+&gt;
+III. MODE
+Calculate the mode for the following numeric as well as character data set in R.
+(2,1,2,3,1,2,3,4,1,5,5,3,2,3) ,(“0”,”it”,”the”,”it”,”it”)
+Program:
+getmode &lt;- function(v) {
+uniqv &lt;- unique(v)
+uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+v &lt;- c(2,1,2,3,1,2,3,4,1,5,5,3,2,3)
+result &lt;- getmode(v)
+print(result)
+charv &lt;- c(&quot;o&quot;,&quot;it&quot;,&quot;the&quot;,&quot;it&quot;,&quot;it&quot;)
+result &lt;- getmode(charv)
+print(result)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] 2
+[1] &quot;it&quot;
+&gt;
+b) Compute the mean after applying the trim option and removing 3 values from each
+end.
+Program:
+A&lt;-c(12,7,3,4.2,18,2,54,-21,8,-5)
+mean(A, trim=0.3)
+Output:
+&gt; mean(A, trim=0.3)
+
+[1] 5.55
+&gt;
+c) Compute the mean of the following vector .
+(12,7,3,4.2,18,2,54,-21,8,-5,NA)
+#If there are missing values, then the mean function returns NA.
+Program:
+x &lt;- c(12,7,3,4.2,18,2,54,-21,8,-5,NA)
+result.mean &lt;- mean(x)
+print(result.mean)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] NA
+&gt;
+# Find mean dropping NA values.
+#To drop the missing values from the calculation use na.rm = TRUE
+Program:
+x &lt;- c(12,7,3,4.2,18,2,54,-21,8,-5,NA)
+result.mean &lt;- mean(x,na.rm = TRUE)
+print(result.mean)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] 8.22
+&gt;
+II.MEDIAN
+Write suitable R code to compute the median of the following values.
+12,7,3,4.2,18,2,54,-21,8,-5
+Program:
+
+a&lt;-c(12,7,3,4.2,18,2,54,-21,8,-5)
+print(median(a))
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] 5.6
+&gt;
+III. MODE
+Calculate the mode for the following numeric as well as character data set in R.
+(2,1,2,3,1,2,3,4,1,5,5,3,2,3) ,(“0”,”it”,”the”,”it”,”it”)
+Program:
+getmode &lt;- function(v) {
+uniqv &lt;- unique(v)
+uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+v &lt;- c(2,1,2,3,1,2,3,4,1,5,5,3,2,3)
+result &lt;- getmode(v)
+print(result)
+charv &lt;- c(&quot;o&quot;,&quot;it&quot;,&quot;the&quot;,&quot;it&quot;,&quot;it&quot;)
+result &lt;- getmode(charv)
+print(result)
+Output:
+&gt; source(&quot;~/.active-rstudio-document&quot;)
+[1] 2
+[1] &quot;it&quot;
+&gt;
+UNIVARIATE ANALYSIS IN R - MEASURES OF DISPERSION
+Exercise: 1
+Download mpg dataset which contains Fuel economy data from 1999 and 2008 for 38
+
+popular models of car from the URL given below.
+https://vincentarelbundock.github.io/Rdatasets/datasets.html
+Answer the following queries
+ 
+i) Find the car which gives maximum city miles per gallon
+CODE:
+require(ggplot2)
+str(mpg)
+nrow(mpg)
+ncol(mpg)
+summary(mpg$cty)
+OUTPUT:
+&gt; require(ggplot2)
+&gt; str(mpg)
+tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
+ $ manufacturer: chr [1:234] &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...
+ $ model       : chr [1:234] &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...
+ $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+ $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+ $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+ $ trans       : chr [1:234] &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...
+ $ drv         : chr [1:234] &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...
+ $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+ $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+ $ fl          : chr [1:234] &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...
+ $ class       : chr [1:234] &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...
+&gt; nrow(mpg)
+[1] 234
+&gt; ncol(mpg)
+[1] 11
+
+&gt; summary(mpg$cty)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   9.00   14.00   17.00   16.86   19.00   35.00
+ii) Find the cars which gives minimum disp in compact and subcompact class
+CODE:
+require(ggplot2)
+str(mpg)
+nrow(mpg)
+ncol(mpg)
+summary(mpg$cty)
+table(mpg$class)
+OUTPUT:
+&gt; summary(mpg$cty)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   9.00   14.00   17.00   16.86   19.00   35.00
+&gt; table(mpg$class)
+ 
+   2seater    compact    midsize    minivan     pickup subcompact        suv
+         5         47         41         11         33         35         62
+ 
+Exercise: 2
+ 
+Use the same dataset as used in Exercise 1 and perform the following queries
+i) Find the standard deviation of city milles per gallon
+CODE:
+str(mpg)
+nrow(mpg)
+ncol(mpg)
+summary(mpg$cty)
+table(mpg$class)
+
+sd(mpg)
+OUTPUT:
+&gt; str(mpg)
+tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
+ $ manufacturer: chr [1:234] &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...
+ $ model       : chr [1:234] &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...
+ $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+ $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+ $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+ $ trans       : chr [1:234] &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...
+ $ drv         : chr [1:234] &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...
+ $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+ $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+ $ fl          : chr [1:234] &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...
+ $ class       : chr [1:234] &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...
+&gt; nrow(mpg)
+[1] 234
+&gt; ncol(mpg)
+[1] 11
+&gt; summary(mpg$cty)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   9.00   14.00   17.00   16.86   19.00   35.00
+&gt; table(mpg$class)
+ 
+   2seater    compact    midsize    minivan     pickup subcompact        suv
+         5         47         41         11         33         35         62
+&gt; sd(mpg)
+ii) Find the variance of highway milles per gallon
+ 
+Exercise 3
+
+Use the same dataset and perform the following queries
+i) Find the range of the disp in the data set mpg
+CODE:
+str(mpg)
+nrow(mpg)
+ncol(mpg)
+summary(mpg$cty)
+table(mpg$class)
+range(mpg)
+OUTPUT:
+&gt; str(mpg)
+tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
+ $ manufacturer: chr [1:234] &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...
+ $ model       : chr [1:234] &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...
+ $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+ $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+ $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+ $ trans       : chr [1:234] &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...
+ $ drv         : chr [1:234] &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...
+ $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+ $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+ $ fl          : chr [1:234] &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...
+ $ class       : chr [1:234] &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...
+&gt; nrow(mpg)
+[1] 234
+&gt; ncol(mpg)
+[1] 11
+&gt; summary(mpg$cty)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   9.00   14.00   17.00   16.86   19.00   35.00
+
+&gt; table(mpg$class)
+ 
+   2seater    compact    midsize    minivan     pickup subcompact        suv
+         5         47         41         11         33         35         62
+&gt; range(mpg)
+ii) Find the Quartile of the disp in the data set mpg
+CODE:
+str(mpg)
+nrow(mpg)
+ncol(mpg)
+summary(mpg$cty)
+table(mpg$class)
+quantile(mpg)
+OUTPUT:
+&gt; str(mpg)
+tibble [234 × 11] (S3: tbl_df/tbl/data.frame)
+ $ manufacturer: chr [1:234] &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; &quot;audi&quot; ...
+ $ model       : chr [1:234] &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; &quot;a4&quot; ...
+ $ displ       : num [1:234] 1.8 1.8 2 2 2.8 2.8 3.1 1.8 1.8 2 ...
+ $ year        : int [1:234] 1999 1999 2008 2008 1999 1999 2008 1999 1999 2008 ...
+ $ cyl         : int [1:234] 4 4 4 4 6 6 6 4 4 4 ...
+ $ trans       : chr [1:234] &quot;auto(l5)&quot; &quot;manual(m5)&quot; &quot;manual(m6)&quot; &quot;auto(av)&quot; ...
+ $ drv         : chr [1:234] &quot;f&quot; &quot;f&quot; &quot;f&quot; &quot;f&quot; ...
+ $ cty         : int [1:234] 18 21 20 21 16 18 18 18 16 20 ...
+ $ hwy         : int [1:234] 29 29 31 30 26 26 27 26 25 28 ...
+ $ fl          : chr [1:234] &quot;p&quot; &quot;p&quot; &quot;p&quot; &quot;p&quot; ...
+ $ class       : chr [1:234] &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; &quot;compact&quot; ...
+&gt; nrow(mpg)
+[1] 234
+&gt; ncol(mpg)
+
+[1] 11
+&gt; summary(mpg$cty)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   9.00   14.00   17.00   16.86   19.00   35.00
+&gt; table(mpg$class)
+ 
+   2seater    compact    midsize    minivan     pickup subcompact        suv
+         5         47         41         11         33         35         62
+&gt; quantile(mpg
+iii) Find the IQR of the disp column in the data set mpg
+CODE:
+OUTPUT:
+ 
+ 
+Exercise 4
+#Install Library
+library(e1071)
+a. Find the skewness of city miles per mileage in the data set mpg ?
+Use qplot function and display the graph for the city miles per mileage column
+CODE:
+head(mpg)
+ggplot(data = mpg, aes (x = displ, y = hwy)) +
+  geom_point() +
+  ggtitle(&quot;Engine displacement (x-axis) vs Mileage (y-axis)&quot;) +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  geom_smooth(method = &#39;lm&#39;, se = F)
+OUTPUT:
+&gt; head(mpg)
+# A tibble: 6 × 11
+  manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
+
+  &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compact
+2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compact
+3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compact
+4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compact
+5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compact
+6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compact
+&gt; ggplot(data = mpg, aes (x = displ, y = hwy)) +
++   geom_point() +
++   ggtitle(&quot;Engine displacement (x-axis) vs Mileage (y-axis)&quot;) +
++   theme(plot.title = element_text(hjust = 0.5)) +
++   geom_smooth(method = &#39;lm&#39;, se = F)
+`geom_smooth()` using formula = &#39;y ~ x&#39;
+b. Find the kurtosis of city miles per mileage in the data set mpg
+Use qplot function and display the graph for the city miles per mileage column
+CODE:
+head(mpg)
+ggplot(data = mpg) +
+  geom_point(mapping = aes (x=displ, y=hwy)) +
+  ggtitle(&quot;Engine displacement (x-axis) vs Mileage (y-axis)&quot;) +
+  theme(plot.title = element_text(hjust = 0.5))
+OUTPUT:
+head(mpg)
+# A tibble: 6 × 11
+  manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
+  &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compact
+2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compact
+3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compact
+4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compact
+
+5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compact
+6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compact
+&gt; ggplot(data = mpg) +
++   geom_point(mapping = aes (x=displ, y=hwy)) +
++   ggtitle(&quot;Engine displacement (x-axis) vs Mileage (y-axis)&quot;) +
++   theme(plot.title = element_text(hjust = 0.5))
+ 
+ 
+BIVARIATEANALYSIS IN R -COVARIANCE,CORRELATION,CROSSTAB
+Exercise: 1
+Reference Status Gender TestNewOrFollowUp
+1 KRXH Accepted Female Test1 New
+2 KRPT Accepted Male Test1 New
+3 FHRA Rejected Male Test2 New
+4 CZKK Accepted Female Test3 New
+5 CQTN Rejected Female Test1 New
+6 PZXW Accepted Female Test4 Follow-up
+7 SZRZ Rejected Male Test4 New
+8 RMZE Rejected Female Test2 New
+9 STNX Accepted Female Test3 New
+10 TMDW Accepted Female Test1 New
+i) Load the dataset and Create a data frame and name it as dataframe1
+ii) Load the function for crosstab
+xtabs(~colname , data=Data frame name )
+CODE:
+Reference = c(&quot;KRXH&quot;, &quot;KRPT&quot;, &quot;FHRA&quot;, &quot;CZKK&quot;, &quot;CQTN&quot;, &quot;PZXW&quot;, &quot;SZRZ&quot;, &quot;RMZE&quot;, &quot;STNX&quot;, &quot;TMDW&quot;)
+Status = c(&quot;Accepted&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;,
+&quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Accepted&quot;)
+Gender = c(&quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;,
+&quot;Female&quot;)
+Test = c(&quot;Test1&quot;, &quot;Test1&quot;, &quot;Test2&quot;, &quot;Test3&quot;, &quot;Test1&quot;, &quot;Test4&quot;, &quot;Test4&quot;, &quot;Test2&quot;, &quot;Test3&quot;, &quot;Test1&quot;)
+
+NewOrFollowUp = c(&quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;Follow-up&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;,
+&quot;New&quot;)
+data1&lt;-data.frame(Reference,Status,Test,NewOrFollowUp )
+print(data1)
+CODE:
+Reference = c(&quot;KRXH&quot;, &quot;KRPT&quot;, &quot;FHRA&quot;, &quot;CZKK&quot;, &quot;CQTN&quot;, &quot;PZXW&quot;, &quot;SZRZ&quot;, &quot;RMZE&quot;, &quot;STNX&quot;, &quot;TMDW&quot;)
+Status = c(&quot;Accepted&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;,
+&quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Accepted&quot;)
+Gender = c(&quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;,
+&quot;Female&quot;)
+Test = c(&quot;Test1&quot;, &quot;Test1&quot;, &quot;Test2&quot;, &quot;Test3&quot;, &quot;Test1&quot;, &quot;Test4&quot;, &quot;Test4&quot;, &quot;Test2&quot;, &quot;Test3&quot;, &quot;Test1&quot;)
+NewOrFollowUp = c(&quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;Follow-up&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;,
+&quot;New&quot;)
+data1&lt;-data.frame(Reference,Status,Test,NewOrFollowUp )
+print(data1)
+xtab(data(Reference,Status,Test,NewOrFollowUp))
+OUTPUT:
+&gt; Reference = c(&quot;KRXH&quot;, &quot;KRPT&quot;, &quot;FHRA&quot;, &quot;CZKK&quot;, &quot;CQTN&quot;, &quot;PZXW&quot;, &quot;SZRZ&quot;, &quot;RMZE&quot;, &quot;STNX&quot;,
+&quot;TMDW&quot;)
+&gt; Status = c(&quot;Accepted&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Rejected&quot;,
+&quot;Rejected&quot;, &quot;Accepted&quot;, &quot;Accepted&quot;)
+&gt; Gender = c(&quot;Female&quot;, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Female&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;,
+&quot;Female&quot;)
+&gt; Test = c(&quot;Test1&quot;, &quot;Test1&quot;, &quot;Test2&quot;, &quot;Test3&quot;, &quot;Test1&quot;, &quot;Test4&quot;, &quot;Test4&quot;, &quot;Test2&quot;, &quot;Test3&quot;, &quot;Test1&quot;)
+&gt; NewOrFollowUp = c(&quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;, &quot;Follow-up&quot;, &quot;New&quot;, &quot;New&quot;, &quot;New&quot;,
+&quot;New&quot;)
+&gt; data1&lt;-data.frame(Reference,Status,Test,NewOrFollowUp )
+&gt; print(data1)
+   Reference   Status  Test NewOrFollowUp
+1       KRXH Accepted Test1           New
+2       KRPT Accepted Test1           New
+3       FHRA Rejected Test2           New
+4       CZKK Accepted Test3           New
+
+5       CQTN Rejected Test1           New
+6       PZXW Accepted Test4     Follow-up
+7       SZRZ Rejected Test4           New
+8       RMZE Rejected Test2           New
+9       STNX Accepted Test3           New
+10      TMDW Accepted Test1           New
+&gt; xtab(data(Reference,Status,Test,NewOrFollowUp))
+Exercise: 2
+i) Use Two Categorical Variables and Discover the relationships within a
+dataset
+ii) Next, using the xtabs() function, apply two variables from “dataframe1 “, to
+create a table delineating the relationship between the “Reference”
+category, and the “Status” category.
+iii) Save the file in the name of dataframe2
+ 
+Exercise: 3
+Use the same data frame using three Categorical Variables create a Multi-Dimensional Table
+Apply three variables from “dataframe1” to create a Multi-Dimensional Cross-Tabulation of
+“Status“, “Gender“, and “Test“.
+ 
+Exercise: 4
+Row Percentages
+The R package “tigerstats” is required for the next two exercises.
+1) Create an xtabs() formula that cross-tabulates “Status“, and “Test“.
+2) Enclose the xtabs() formula in the tigerstats function, “rowPerc()” to display row
+percentages for “Status” by “Test“.
+ 
+Exercise 5
+Column Percentages
+1) Create an xtabs() formula that cross-tabulates “Status“, and “Test“.
+
+2) Enclose the xtabs() formula in the tigerstats function, “colPerc()” to display row
+percentages for “Status” by “Test“.
+ 
+Exercise 6
+Covariance
+i) For the Dataframe1 created from exercise 2 calculate the covariance between
+Refrence column and Status column
+ii) Display the covariance matrix
+ 
+Exercise 7
+Correlation
+Find the Correlation between gender and status. what kind of correlation does exist between
+the two?
+
+VISUALIZATION IN R
+
+1. Write a program for creating a pie-chart in R using the input vector(21,62,10,53).
+Provide labels for the chart as ‘London’, ‘New York’, ‘Singapore’, ‘Mumbai’. Add a
+title to the chart as ‘city pie-chart’ and add a legend at the top right corner of the chart.
+Program:
+geeks&lt;- c(21,62,10,53)
+labels &lt;- c(&quot;London&quot;, &quot;New York&quot;, &quot;Singapore&quot;, &quot;Mumbai&quot;)
+# Plot the chart.
+pie(geeks, labels)
+Output:
+
+2. Create a 3D Pie Chart for the dataset “political Knowledge” with suitable
+labels,colours and a legend at the top right corner of the chart.
+Program:
+library(plotrix)
+
+geeks &lt;- c(23, 56, 20, 63)
+labels &lt;- c(&quot;Mumbai&quot;, &quot;Pune&quot;, &quot;Chennai&quot;, &quot;Bangalore&quot;)
+piepercent&lt;- round(100 * geeks / sum(geeks), 1)
+pie3D(geeks, labels = piepercent,
+main = &quot;City pie chart&quot;, col = rainbow(length(geeks)))
+legend(&quot;topright&quot;, c(&quot;Mumbai&quot;, &quot;Pune&quot;, &quot;Chennai&quot;, &quot;Bangalore&quot;),
+cex = 0.5, fill = rainbow(length(geeks)))
+Output:
+
+3. Write a program for creating a bar chart using the vectors H=c(7,12,28,3,41) and
+
+M=c(“mar”, “apr”, “may”, “jun”, “jul”). Add a title to the chart as “Revenue chart”.
+Program:
+# Create the data for the chart
+A &lt;- c(7,12,28,3,41)
+barplot(A, xlab = &quot;days&quot;, ylab = &quot;months&quot;, main =&quot;Revenue chart&quot;)
+output:
+
+4. Make a histogram for the “AirPassengers“dataset, start at 100 on the x-axis, and from
+values 200 to 700, make the bins 200 wide
+program:
+hist(AirPassengers, xlim=c(200,700), ylim=c(0,30))
+output:
+5. Create a Boxplot graph for the relation between &amp;quot;mpg&amp;quot;(miles per galloon) and
+&amp;quot;cyl&amp;quot;(number of Cylinders) for the dataset &amp;quot;mtcars&amp;quot; available in R
+Environment.
+Program:
+input &lt;- mtcars[,c(&#39;mpg&#39;,&#39;cyl&#39;)]
+print(head(input))
+png(file = &quot;boxplot.png&quot;)
+boxplot(mpg ~ cyl, data = mtcars, xlab = &quot;Number of Cylinders&quot;,
+ylab = &quot;Miles Per Gallon&quot;, main = &quot;Mileage Data&quot;)
+dev.off()
+Output:
+&gt; print(head(input))
+
+mpg cyl
+Mazda RX4 21.0 6
+Mazda RX4 Wag 21.0 6
+Datsun 710 22.8 4
+Hornet 4 Drive 21.4 6
+Hornet Sportabout 18.7 8
+Valiant 18.1 6
+&gt; dev.off()
+png
+2
+&gt;
